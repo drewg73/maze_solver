@@ -1,5 +1,7 @@
 from cell import Maze
 
+import time
+
 class Maze():
   def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win):
     self._cells = []
@@ -26,3 +28,8 @@ class Maze():
     y1 = j * self._y1
     y2 = y1 + self._cell_size_y
     cell.draw(x1, x2, y1, y2)
+    self._animate()
+
+  def _animate(self):
+    self._win.redraw()
+    time.sleep(0.05)
